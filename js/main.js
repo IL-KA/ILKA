@@ -14,10 +14,7 @@ navBtn.onclick = () => {
 }
 
 if (window.innerWidth <= 1230) {
-  for (let i = 0; i < navList.length; i++) {
-      navList[i].setAttribute('data-aos', 'fade-left');
-  }
-} else {
+
   for (let i = 0; i < navList.length; i++) {
     navList[i].onclick = () => {
       nav.classList.remove('open');
