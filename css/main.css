@@ -46,7 +46,7 @@ a {
 /* HEADER */
 
 .header {
-  padding-top: 46px;
+  padding-top: 40px;
   background-color: #F1F1F1;
 }
 
@@ -59,7 +59,7 @@ a {
 .logo {
   position: relative;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 40px;
   color: black;
   padding: 0 12px 3px 0;
   line-height: 1;
@@ -96,6 +96,7 @@ a {
 
 .nav-button {
   display: none;
+  width: 35px;
 }
 
 .nav-link {
@@ -168,6 +169,8 @@ a {
   font-weight: 600;
   margin-bottom: 10px;
   font-size: 24px;
+  color: #B7CE63FF;
+  /*-webkit-text-stroke: 1px #000000;*/
 }
 
 .service-card p {
