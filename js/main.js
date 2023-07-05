@@ -122,7 +122,7 @@ btnSubmit.onclick = () => {
   } else {
     num = '';
   }
-  if (inputName.value != 0 && inputEmail != 0) {
+  if (inputName.value != '' && inputEmail.value != '') {
     alert("Hello! You have new offer from: " + inputName.value + "\nWrite on Email: " + inputEmail.value + '\n' + num
           + '\nMessage to you:\n' + textArea.value)
   }
