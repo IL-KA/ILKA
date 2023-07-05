@@ -1,10 +1,14 @@
 @import "./reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
 
-body{
+body {
   color: black;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }
 
 .container {
@@ -99,8 +103,38 @@ a {
   width: 35px;
 }
 
-.nav-link {
-  color: black;
+.btn-up {
+  position: fixed;
+  right: 6vw;
+  bottom: 50px;
+  border-radius: 50%;
+  /*cursor: pointer;*/
+  display: flex;
+  /* выравниваем элементы внутри элемента по центру вдоль поперечной оси */
+  align-items: center;
+  /* выравниваем элементы внутри элемента по центру вдоль главной оси */
+  justify-content: center;
+  max-width: 5vh;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 5vh;
+  z-index: 3;
+  opacity: 0.6;
+
+  transition: bottom 0.4s ease-in-out;
+}
+
+.btn-up:hover {
+  scale: 110%;
+  opacity: 1;
+}
+
+.btn-up-hide {
+  bottom: -80px;
+}
+
+.nav-item-close {
+  display: none;
 }
 
 /*.nav-link.active {*/
@@ -112,17 +146,17 @@ a {
 }
 
 /* HEADER CONTENT */
- .header-row {
-   display: flex;
-   justify-content: space-between;
-   column-gap: 30px;
-   padding-top: 30px;
- }
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 30px;
+  padding-top: 30px;
+}
 
- .header-content {
-   max-width: 500px;
-   padding-top: 124px;
- }
+.header-content {
+  max-width: 500px;
+  padding-top: 124px;
+}
 
 .header-content h1 {
   font-weight: 600;
@@ -224,14 +258,174 @@ a {
   margin-bottom: 60px;
 }
 
+.bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out, z-index 0.8s ease-out;
+  z-index: -1;
+}
+
+.show-bg {
+  opacity: 0.8;
+  z-index: 3;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-contact {
+  position: fixed;
+  bottom: -100vh;
+
+  height: 80vh;
+  width: 500px;
+
+
+  background-color: #f1f1f1;
+  opacity: 1;
+  z-index: 5;
+
+  border-radius: 30px;
+  transition: bottom 0.4s ease-in-out;
+  overflow-y: hidden;
+}
+
+.show-modal {
+  /*top: 10vh;*/
+  bottom: 10vh;
+}
+
+.btn-close {
+  text-align: right;
+  margin-top: 15px;
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+.btn-close img {
+  max-width: 3vh;
+  min-width: 20px;
+}
+
+.input-title {
+  text-align: left;
+  margin: 10px 10% 5px;
+  min-width: 60px;
+  font-weight: 600;
+}
+
+.lbl-in {
+  display: flex;
+  margin: 0 10%;
+  width: 80%;
+}
+
+.input {
+  min-width: 100%;
+  background-color: #c8c5c5;
+  border-radius: 5px;
+  padding: 0 10px;
+  height: 30px;
+  font-size: 18px;
+}
+
+input::placeholder {
+  color: black;
+  opacity: 0.5;
+}
+
+.call-me {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 30px;
+  margin: 10px 10%;
+  gap: 10px;
+  min-width: 80%;
+}
+
+.call-me p {
+  margin-left: 0;
+}
+
+.lbl-checkbox {
+  position: absolute;
+  margin-left: 65px;
+  margin-bottom: 8px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1px solid #3a3a3a;
+  background-color: #ffffff;
+}
+
+.lbl-checkbox:hover {
+  border: 2px solid rgb(61, 120, 236);
+}
+
+input[type="checkbox"]:checked + label[class="lbl-checkbox"] {
+  background-color: cornflowerblue;
+  border: 2px solid rgb(61, 120, 236);
+}
+
+.checkbox {
+  display: none;
+}
+
+.lbl-in-mobile {
+  display: flex;
+  max-width: 60%;
+  opacity: 1;
+  transition: margin-right 0.5s ease-in-out, opacity 0.6s ease-in-out;
+  z-index: 5;
+}
+
+.mobile-hide {
+  margin-right: 15vw;
+  opacity: 0;
+  z-index: -2;
+}
+
+.lbl-in-mobile input {
+  width: 100%;
+}
+
+.mess-box {
+  width: 80%;
+  height: 40%;
+  bottom: 15px;
+  margin: 5px 10% 0;
+}
+
+.message-area {
+  width: 100%;
+  height: 100%;
+  background-color: #c8c5c5;
+  resize: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.modal-contact button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .contacts-social {
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 60px;
   margin-bottom: 40px;
-
-  transition: top 0.3s ease-in, scale 0.2s ease-in;
+  transition: top 0.3s ease-in, scale 0.3s ease-in;
 }
 
 .contacts-social a:hover {
@@ -240,7 +434,7 @@ a {
 
 .contacts-social a:active {
   position: relative;
-  top:2px;
+  top: 2px;
 }
 
 .contacts-footer {

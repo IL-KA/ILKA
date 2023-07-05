@@ -17,20 +17,21 @@
       <div class="header-nav">
         <a href="javascript:void(0)" class="logo"><span class="IL">IL</span><span class="KA">KA</span></a>
         <nav id="nav" class="nav">
-          <div class="nav-panel">
             <ul class="nav-list">
               <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
               <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
               <li class="nav-item"><a href="#contacts" class="nav-link">Contact</a></li>
               <li class="nav-item-close">
-                <a href="javascript:void(0)" class="nav-link">
+                <a href="#" class="nav-link">
                   <img src="./img/icons/nav-close.svg" alt="Close">
                 </a>
               </li>
             </ul>
-          </div>
           <button id="nav-btn" class="nav-button">
             <img id="nav-btn-img" src="./img/icons/nav-open.svg" alt="Nav button">
+          </button>
+          <button id = "btn-up" class="btn-up btn-up-hide">
+            <img src="./img/icons/btn-up.svg" alt="Button up">
           </button>
         </nav>
       </div>
@@ -129,14 +130,54 @@
       </div>
 
       <div class="contacts-button">
-        <a href="https://t.me/ilyakart" class="button" target="_blank">Send message</a>
+        <a id="contacts-button" class="button">Send message</a>
+      </div>
+
+      <div id="bg" class="bg"></div>
+      <div class="modal-container">
+        <div id="modal-contact" class="modal-contact">
+
+          <div class="btn-close">
+            <a href="#"><img id="btn-close" src="./img/icons/nav-close.svg" alt="Close"></a>
+          </div>
+
+          <p class="input-title">Full name:</p>
+          <label class="lbl-in">
+            <input id="input-name" class="input" placeholder="Name Surname">
+          </label>
+
+          <p class="input-title">Email:</p>
+          <label class="lbl-in">
+            <input id="input-email" class="input" type="email" placeholder="example@gmail.com">
+          </label>
+
+          <div class="call-me">
+            <p class="input-title">Call me:</p>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="lbl-checkbox" id="lbl-box"></label>
+            <label class="lbl-in-mobile mobile-hide" id="lbl-in-mobile">
+              <input class="input" placeholder="+X(XXX)XXX-XX-XX" id="numeric-input">
+            </label>
+          </div>
+
+          <p class="input-title">Enter your message:</p>
+          <div class="mess-box">
+            <label>
+              <textarea class="message-area" placeholder="Your text" id="text-area"></textarea>
+            </label>
+          </div>
+
+          <button class="contacts-button">
+            <a class="button" id="button-submit">Submit</a>
+          </button>
+
+        </div>
       </div>
 
       <div class="contacts-social" data-aos="zoom-in">
         <a href="https://t.me/ilyakart" target="_blank"><img src="./img/socials/Telegram.svg" alt="Telegram"></a>
         <a href="https://vk.com/ilyakart" target="_blank"><img src="./img/socials/VK.svg" alt="VK"></a>
         <a href="https://www.instagram.com/ilyakart" target="_blank"><img src="./img/socials/Instagram.svg" alt="Instagram"></a>
-<!--        <a href="#!"><img src="./img/socials/surface.png" alt="Dribble"></a>-->
       </div>
 
       <div class="contacts-footer">
