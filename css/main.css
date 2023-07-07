@@ -7,6 +7,10 @@ body {
   font-size: 14px;
 }
 
+div {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .no-scroll {
   overflow-y: hidden;
 }
@@ -121,7 +125,7 @@ a {
   z-index: 3;
   opacity: 0.6;
 
-  transition: bottom 0.4s ease-in-out;
+  transition: bottom 0.6s ease-in-out;
 }
 
 .btn-up:hover {
@@ -136,10 +140,6 @@ a {
 .nav-item-close {
   display: none;
 }
-
-/*.nav-link.active {*/
-/*  color: #5882ba;*/
-/*}*/
 
 .nav-link:active, .nav-link:hover {
   color: #5882ba;
@@ -255,7 +255,10 @@ a {
 }
 
 .contacts-button {
-  margin-bottom: 60px;
+  text-align: center;
+  max-width: 195px;
+  margin:0 auto 60px;
+  cursor: pointer;
 }
 
 .bg {
@@ -280,26 +283,29 @@ a {
   justify-content: center;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 .modal-contact {
   position: fixed;
-  bottom: -100vh;
-
+  bottom: -200vh;
+  top: 220vh;
   height: 80vh;
   width: 500px;
-
-
+  max-height: 450px;
   background-color: #f1f1f1;
   opacity: 1;
   z-index: 5;
 
   border-radius: 30px;
-  transition: bottom 0.4s ease-in-out;
-  overflow-y: hidden;
+  transition: bottom 0.7s ease-in-out, top 0.7s ease-in-out;
+  overflow-y: auto;
 }
 
 .show-modal {
-  /*top: 10vh;*/
-  bottom: 10vh;
+  top: 25vh;
+  bottom: 25vh;
 }
 
 .btn-close {
@@ -312,13 +318,15 @@ a {
 .btn-close img {
   max-width: 3vh;
   min-width: 20px;
+  cursor: pointer;
 }
 
 .input-title {
   text-align: left;
-  margin: 10px 10% 5px;
-  min-width: 60px;
+  margin: 10px 0 5px 10%;
+  min-width: 70px;
   font-weight: 600;
+  font-size: 16px;
 }
 
 .lbl-in {
@@ -329,16 +337,35 @@ a {
 
 .input {
   min-width: 100%;
-  background-color: #c8c5c5;
-  border-radius: 5px;
+  border: 2px solid rgba(176, 176, 176, 0.75);
+  border-radius: 10px;
   padding: 0 10px;
   height: 30px;
   font-size: 18px;
+  background-color: white;
 }
 
-input::placeholder {
-  color: black;
+.input:focus {
+  border: 3px solid #89a9e3;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #4c73be;
+  opacity: 0.6;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #89a9e3;
   opacity: 0.5;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #89a9e3;
+  opacity: 0.5;
+}
+
+.void-field {
+  border: 3px solid rgba(204, 0, 0, 0.48);
 }
 
 .call-me {
@@ -352,17 +379,23 @@ input::placeholder {
   min-width: 80%;
 }
 
+.title-checkbox {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: left;
+}
+
 .call-me p {
   margin-left: 0;
 }
 
 .lbl-checkbox {
-  position: absolute;
-  margin-left: 65px;
-  margin-bottom: 8px;
+  margin-left: 15px;
+  margin-top: 14px;
   width: 15px;
   height: 15px;
-  border-radius: 50%;
+  border-radius: 3px;
   border: 1px solid #3a3a3a;
   background-color: #ffffff;
 }
@@ -372,7 +405,9 @@ input::placeholder {
 }
 
 input[type="checkbox"]:checked + label[class="lbl-checkbox"] {
-  background-color: cornflowerblue;
+  background-image: url("../img/icons/check.svg");
+  background-size: 100%;
+  background-color: rgba(152, 183, 234, 0.78);
   border: 2px solid rgb(61, 120, 236);
 }
 
@@ -381,15 +416,14 @@ input[type="checkbox"]:checked + label[class="lbl-checkbox"] {
 }
 
 .lbl-in-mobile {
-  display: flex;
-  max-width: 60%;
+  max-width: 50%;
   opacity: 1;
-  transition: margin-right 0.5s ease-in-out, opacity 0.6s ease-in-out;
+  transition: margin-right 0.4s ease-in-out, opacity 0.4s ease-in-out;
   z-index: 5;
 }
 
 .mobile-hide {
-  margin-right: 15vw;
+  margin-right: 100px;
   opacity: 0;
   z-index: -2;
 }
@@ -400,23 +434,35 @@ input[type="checkbox"]:checked + label[class="lbl-checkbox"] {
 
 .mess-box {
   width: 80%;
-  height: 40%;
-  bottom: 15px;
+  height: 20%;
+  min-height: 100px;
   margin: 5px 10% 0;
 }
 
-.message-area {
-  width: 100%;
+.lbl-textarea {
+  display: flex;
   height: 100%;
-  background-color: #c8c5c5;
-  resize: none;
+}
+
+.message-area {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: #ffffff;
+  border: 2px solid rgba(176, 176, 176, 0.75);
   border-radius: 10px;
+  resize: none;
   padding: 10px;
+  font-size: 18px;
+}
+
+.message-area:focus {
+  outline: none;
+  border: 3px solid #89a9e3;
 }
 
 .modal-contact button {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .contacts-social {

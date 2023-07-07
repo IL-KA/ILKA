@@ -22,9 +22,7 @@
               <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
               <li class="nav-item"><a href="#contacts" class="nav-link">Contact</a></li>
               <li class="nav-item-close">
-                <a href="#" class="nav-link">
-                  <img src="./img/icons/nav-close.svg" alt="Close">
-                </a>
+                  <img class="nav-link" src="./img/icons/nav-close.svg" alt="Close">
               </li>
             </ul>
           <button id="nav-btn" class="nav-button">
@@ -129,8 +127,8 @@
         <p>Want to know more or just chat?<br>You are welcome!</p>
       </div>
 
-      <div class="contacts-button">
-        <a id="contacts-button" class="button">Send message</a>
+      <div class="contacts-button" id="contacts-button">
+        <a class="button">Send message</a>
       </div>
 
       <div id="bg" class="bg"></div>
@@ -138,31 +136,33 @@
         <div id="modal-contact" class="modal-contact">
 
           <div class="btn-close">
-            <a href="#"><img id="btn-close" src="./img/icons/nav-close.svg" alt="Close"></a>
+            <img id="btn-close" src="./img/icons/nav-close.svg" alt="Close">
           </div>
 
-          <p class="input-title">Full name:</p>
+          <p class="input-title">Name:</p>
           <label class="lbl-in">
-            <input id="input-name" class="input" placeholder="Name Surname">
+            <input id="input-name" class="input" placeholder="Your full name">
           </label>
 
           <p class="input-title">Email:</p>
           <label class="lbl-in">
-            <input id="input-email" class="input" type="email" placeholder="example@gmail.com">
+            <input id="input-email" class="input" type="email" placeholder="Example@gmail.com">
           </label>
 
           <div class="call-me">
-            <p class="input-title">Call me:</p>
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="lbl-checkbox" id="lbl-box"></label>
+            <div class="title-checkbox">
+              <p class="input-title">Call me:</p>
+              <input type="checkbox" class="checkbox" id="checkbox">
+              <label for="checkbox" class="lbl-checkbox" id="lbl-box"></label>
+            </div>
             <label class="lbl-in-mobile mobile-hide" id="lbl-in-mobile">
-              <input class="input" placeholder="+X(XXX)XXX-XX-XX" id="numeric-input">
+              <input class="input" data-inputmask="'mask': '+7 (999) 999-9999'" placeholder="+7 (XXX) XXX-XXXX" id="numeric-input">
             </label>
           </div>
 
           <p class="input-title">Enter your message:</p>
           <div class="mess-box">
-            <label>
+            <label class="lbl-textarea">
               <textarea class="message-area" placeholder="Your text" id="text-area"></textarea>
             </label>
           </div>
@@ -186,6 +186,8 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./js/main.js"></script>
 </body>

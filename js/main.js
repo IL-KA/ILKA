@@ -12,6 +12,7 @@ const bg = document.querySelector('#bg');
 const btnClose = document.querySelector('#btn-close');
 //Modal elements
 const inputList = document.getElementsByClassName('input');
+const inputsRequired = document.querySelectorAll('#input-name, #input-email')
 const inputName = document.querySelector('#input-name');
 const inputEmail = document.querySelector('#input-email');
 const lblCheck = document.querySelector('#lbl-box');
@@ -20,6 +21,10 @@ const checkBox = document.querySelector('#checkbox');
 const numericInput = document.querySelector('#numeric-input');
 const textArea = document.querySelector('#text-area');
 const btnSubmit = document.querySelector('#button-submit');
+
+$(document).ready(function() {
+  Inputmask().mask(document.getElementById('numeric-input'));
+});
 
 if (window.innerHeight <= 500) {
   AOS.init({
@@ -58,7 +63,6 @@ document.addEventListener('click', (e) => {
   if (!withinBoundaries && nav.classList.contains('open')) {
     nav.classList.remove('open')
     body.classList.remove('no-scroll')
-    alert('bad')
   }
 })
 
@@ -112,10 +116,6 @@ numericInput.addEventListener('input', function () {
 });
 
 btnSubmit.onclick = () => {
-  modalContact.classList.remove('show-modal')
-  bg.classList.remove('show-bg')
-  body.classList.remove('no-scroll')
-  btnUp.classList.remove('btn-up-hide')
   let num = 'Call on this number: '
   if (numericInput.value != '') {
     num = num + numericInput.value
@@ -125,8 +125,27 @@ btnSubmit.onclick = () => {
   if (inputName.value != '' && inputEmail.value != '') {
     alert("Hello! You have new offer from: " + inputName.value + "\nWrite on Email: " + inputEmail.value + '\n' + num
           + '\nMessage to you:\n' + textArea.value)
+    clearModal()
+    modalContact.classList.remove('show-modal')
+    bg.classList.remove('show-bg')
+    body.classList.remove('no-scroll')
+    btnUp.classList.remove('btn-up-hide')
   }
-  clearModal()
+  else {
+    var textArray = [];
+    for (let i = 0; i < inputsRequired.length; i++) {
+      textArray.push(inputsRequired[i].placeholder)
+      inputsRequired[i].placeholder = 'This is a required field'
+      inputsRequired[i].classList.add('void-field')
+      // inputsRequired[i].placeholder.color = 'red';
+    }
+    setTimeout(function() {
+      for (let i = 0; i < inputsRequired.length; i++) {
+        inputsRequired[i].placeholder = textArray[i]
+        inputsRequired[i].classList.remove('void-field')
+      }
+    }, 5000);
+  }
 }
 
 // Адаптив закрытия панеи навигации
