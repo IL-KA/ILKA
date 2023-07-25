@@ -169,7 +169,7 @@
   }
 
   .portfolio {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .portfolio-title {
@@ -185,11 +185,11 @@
   }
 
   .contacts {
-    padding: 60px 0;
+    padding: 50px 0;
   }
 
   .contacts-title {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
 
   .contacts-content {
@@ -204,8 +204,6 @@
     height: 80vh;
     width: 80vw;
   }
-
-  /* bbbbsjicdsvgisdviugsdvgdsvds */
 
   .lbl-in-mobile {
     min-width: 160px;
@@ -259,7 +257,7 @@
 
   .contacts-social {
     column-gap: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 
@@ -302,7 +300,7 @@
   .title-checkbox {
     display: flex;
     flex-wrap: nowrap;
-    min-width: 50%;
+    min-width: 170px;
   }
 
   .title-checkbox p {

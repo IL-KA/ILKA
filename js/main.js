@@ -123,8 +123,25 @@ btnSubmit.onclick = () => {
     num = '';
   }
   if (inputName.value != '' && inputEmail.value != '') {
-    alert("Hello! You have new offer from: " + inputName.value + "\nWrite on Email: " + inputEmail.value + '\n' + num
-          + '\nMessage to you:\n' + textArea.value)
+    let offer = "Hello! You have new offer from: " + inputName.value + "\nWrite on Email: " + inputEmail.value + '\n' + num
+          + '\nMessage to you:\n' + textArea.value
+    alert(offer)
+
+    var formData = offer
+    var xhr = new XMLHttpRequest()
+    xhr.open('POST', '/send-form.php', true)
+    xhr.setRequestHeader('Content-Type', "offer/x-www-form-urlencoded")
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        alert('Заявка успешно отправлена!');
+        // Дополнительные действия после успешной отправки
+      } else {
+        alert('Ошибка при отправке заявки. Статус: ' + xhr.status);
+        // Дополнительные действия при ошибке отправки
+      }
+    };
+    xhr.send(formData);
+
     clearModal()
     modalContact.classList.remove('show-modal')
     bg.classList.remove('show-bg')
@@ -135,9 +152,10 @@ btnSubmit.onclick = () => {
     var textArray = [];
     for (let i = 0; i < inputsRequired.length; i++) {
       textArray.push(inputsRequired[i].placeholder)
-      inputsRequired[i].placeholder = 'This is a required field'
-      inputsRequired[i].classList.add('void-field')
-      // inputsRequired[i].placeholder.color = 'red';
+      if (inputsRequired[i].value == '') {
+        inputsRequired[i].placeholder = 'Это обязательное поле*'
+        inputsRequired[i].classList.add('void-field')
+      }
     }
     setTimeout(function() {
       for (let i = 0; i < inputsRequired.length; i++) {
@@ -149,14 +167,16 @@ btnSubmit.onclick = () => {
 }
 
 // Адаптив закрытия панеи навигации
-if (window.innerWidth <= 1230) {
-  for (let i = 0; i < navList.length; i++) {
-    navList[i].onclick = () => {
-      nav.classList.remove('open');
-      body.classList.remove('no-scroll')
-    };
+window.addEventListener('resize', (e) => {
+  if (window.innerWidth <= 1230) {
+    for (let i = 0; i < navList.length; i++) {
+      navList[i].onclick = () => {
+        nav.classList.remove('open');
+        body.classList.remove('no-scroll')
+      };
+    }
   }
-}
+});
 
 // Плавная прокрутка к якорным ссылкам
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
